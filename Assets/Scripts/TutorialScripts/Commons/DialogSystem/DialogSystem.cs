@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum Speaker { Rico = 0, DoctorKO }
+public enum Speaker { Narration = 0 }
 
 public class DialogSystem : MonoBehaviour
 {
@@ -24,11 +24,11 @@ public class DialogSystem : MonoBehaviour
 
 	private	int					currentIndex = -1;
 	private	bool				isTypingEffect = false;			// 텍스트 타이핑 효과를 재생중인지
-	private	Speaker				currentSpeaker = Speaker.Rico;
+	private	Speaker				currentSpeaker = Speaker.Narration;
 
 	public void Setup()
 	{
-		for ( int i = 0; i < 2; ++ i )
+		for ( int i = 0; i < imageDialogs.Length; ++ i )
 		{
 			// 모든 대화 관련 게임오브젝트 비활성화
 			InActiveObjects(i);
@@ -63,7 +63,7 @@ public class DialogSystem : MonoBehaviour
 			else
 			{
 				// 모든 캐릭터 이미지를 어둡게 설정
-				for ( int i = 0; i < 2; ++ i )
+				for ( int i = 0; i < imageDialogs.Length; ++ i )
 				{
 					// 모든 대화 관련 게임오브젝트 비활성화
 					InActiveObjects(i);
@@ -90,8 +90,8 @@ public class DialogSystem : MonoBehaviour
 		imageDialogs[(int)currentSpeaker].gameObject.SetActive(true);
 
 		// 현재 화자 이름 텍스트 활성화 및 설정
-		textNames[(int)currentSpeaker].gameObject.SetActive(true);
-		textNames[(int)currentSpeaker].text = dialogs[currentIndex].speaker.ToString();
+		//textNames[(int)currentSpeaker].gameObject.SetActive(true);
+		//textNames[(int)currentSpeaker].text = dialogs[currentIndex].speaker.ToString();
 
 		// 화자의 대사 텍스트 활성화 및 설정 (Typing Effect)
 		textDialogues[(int)currentSpeaker].gameObject.SetActive(true);
@@ -101,7 +101,7 @@ public class DialogSystem : MonoBehaviour
 	private void InActiveObjects(int index)
 	{
 		imageDialogs[index].gameObject.SetActive(false);
-		textNames[index].gameObject.SetActive(false);
+		//textNames[index].gameObject.SetActive(false);
 		textDialogues[index].gameObject.SetActive(false);
 		objectArrows[index].SetActive(false);
 	}

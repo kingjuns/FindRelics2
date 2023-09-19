@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class TutorialDestroyTagObjects : TutorialBase
 {
 	[SerializeField]
-	private	PlayerController	playerController;
+	private	Player	playerController;
 	[SerializeField]
 	private	GameObject[]		objectList;
 	[SerializeField]

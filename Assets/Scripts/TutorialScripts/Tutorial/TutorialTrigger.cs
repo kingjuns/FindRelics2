@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class TutorialTrigger : TutorialBase
 {
 	[SerializeField]
-	private	PlayerController	playerController;
+	private	Player	playerController;
 	[SerializeField]
 	private	Transform			triggerObject;
 	
@@ -12,7 +12,7 @@ public class TutorialTrigger : TutorialBase
 	public override void Enter()
 	{
 		// 플레이어 이동 가능
-		playerController.IsMoved = true;
+		//playerController.IsMoved = true;
 		// Trigger 오브젝트 활성화
 		triggerObject.gameObject.SetActive(true);
 	}
@@ -28,7 +28,7 @@ public class TutorialTrigger : TutorialBase
 
 		/// 충돌 기준
 		// TutorialTrigger 오브젝트의 위치를 플레이어와 동일하게 설정 (Trigger 오브젝트와 충돌할 수 있도록)
-		transform.position = playerController.transform.position;
+		//transform.position = playerController.transform.position;
 
 		if ( isTrigger == true )
 		{

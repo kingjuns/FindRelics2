@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     // 이동하는데 걸리는 시간
     public float moveDuration = 1.0f;
 
+    public bool IsMoved = true;
+    public bool IsAttacked = true;
     public void Initialize(Transform tr, Tile tile)
     {
         Tile = tile;
