@@ -8,6 +8,7 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public CircleTransition circleTransition;
 
     [Header("Spawn Level Value")]
     public LevelData Level;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Tile Spawned List")]
     List<Tile> spawnedTiles = new List<Tile>();
+    public List<Tile> SpawnedTiles { get { return spawnedTiles; } }
 
     // 게임 종료 불리언 변수
     public bool hasGameEnded;
@@ -130,11 +132,12 @@ public class GameManager : MonoBehaviour
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
         music = Resources.Load<GameObject>("Sound/Music");
+
+        SpawnStage();
     }
 
     void Start()
     {
-        SpawnStage();
         CameraSetting();
 
         Instantiate(music);

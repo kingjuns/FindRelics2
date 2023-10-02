@@ -20,6 +20,8 @@ public class TileButton : MonoBehaviour
 
     GameObject moveSound;
 
+    public bool canDoMove;
+
     void Start()
     {
         anim.GetComponent<Animator>();
@@ -28,6 +30,8 @@ public class TileButton : MonoBehaviour
         tempVec = new List<Vector3>();
 
         moveSound = Resources.Load<GameObject>("Sound/TileMoveSound");
+
+        canDoMove = true;
     }
 
     public void Initialize()
@@ -56,20 +60,35 @@ public class TileButton : MonoBehaviour
     // 마우스 가까이 가져다 대었을 때
     void OnMouseEnter()
     {
+        if (gameManager.hasGameEnded)
+            return;
+
+        if (canDoMove == false)
+            return;
+
         anim.SetBool("isEntered", true);
     }
 
     void OnMouseExit()
     {
+        if (gameManager.hasGameEnded)
+            return;
+
+        if (canDoMove == false)
+            return;
+
         anim.SetBool("isEntered", false);
     }
 
     void OnMouseDown()
     {
-        anim.SetTrigger("Clicked");
-
         if (gameManager.hasGameEnded)
             return;
+
+        if (canDoMove == false)
+            return;
+
+        anim.SetTrigger("Clicked");
 
         // 만약 애니메이션이 실행되고 있는 중 이라면, 리턴 시킨다.
         int totalPlayingTweens = gameManager.tweenQueue.Count;
