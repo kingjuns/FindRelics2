@@ -444,6 +444,8 @@ MonoBehaviour:
   PlayingAnimSpeed: 0.5
   hasGameEnded: 0
   UI_Clear_Prefab: {fileID: 0}
+  effectDatas:
+  - {fileID: 11400000, guid: cb957c5ac7ca8b84c8b452272f31b2df, type: 2}
 --- !u!1 &484178180
 GameObject:
   m_ObjectHideFlags: 0

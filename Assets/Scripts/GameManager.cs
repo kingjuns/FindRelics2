@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject UI_Clear_Prefab;
 
+    public EffectData[] effectDatas;  
+
     // BFS의 결과 순서를 저장할 큐를 선언해준다.
     Queue<Tile> resultQueue = new Queue<Tile>();
     void BFS(Tile now)
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
     }
     
     GameObject music;
+    
 
     // 모든 타일의 방문 여부를 초기화하는 함수
     private void DisableVisitedTiles()
@@ -129,7 +132,7 @@ public class GameManager : MonoBehaviour
         hasGameEnded = false;
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
-        music = Resources.Load<GameObject>("Sound/Music");
+        music = Resources.Load<GameObject>("Sound/Music");        
     }
 
     void Start()
@@ -200,6 +203,14 @@ public class GameManager : MonoBehaviour
             yPos += defaultSpacing + spawnSpacing;
         }
         yPos = 0;
+    }
+
+    //클리어 후 효과 실행
+    public void LoadStageEffect(int stage)
+    {
+        //스테이지 번호에 맞는 이펙트 로드
+        EffectData effect = effectDatas[stage];
+        Instantiate(effect.Effect_Prefab, effect.EffectPos, Quaternion.identity);
     }
 
     void CameraSetting()
