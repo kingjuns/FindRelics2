@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [HideInInspector] public Tile Tile;
+    private TimeController timerController;
 
     // 이동하는데 걸리는 시간
     public float moveDuration = 1.0f;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
 
             // 스테이지 클리어 프리팹 생성하기
             Instantiate(GameManager.Instance.UI_Clear_Prefab);
+            timerController.StopTimer();
 
             return;
         }

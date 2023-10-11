@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     LayerMask layerConncet;
 
     public GameObject UI_Clear_Prefab;
+    public GameObject UI_Over_Prefab;
 
     // BFS의 결과 순서를 저장할 큐를 선언해준다.
     Queue<Tile> resultQueue = new Queue<Tile>();
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
         BFS(Player.Tile);
     }
     
-    GameObject music;
+    
 
     // 모든 타일의 방문 여부를 초기화하는 함수
     private void DisableVisitedTiles()
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
         hasGameEnded = false;
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
-        music = Resources.Load<GameObject>("Sound/Music");
+        UI_Over_Prefab = Resources.Load<GameObject>("UI/FailCanvas");
 
         SpawnStage();
 
@@ -148,8 +149,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CameraSetting();
-
-        Instantiate(music);
+        
     }
 
     // 1 프레임 이후 처리할 코드
