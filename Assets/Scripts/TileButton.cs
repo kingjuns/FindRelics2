@@ -19,6 +19,9 @@ public class TileButton : MonoBehaviour
     [SerializeField] List<Vector3> tempVec;
 
     GameObject moveSound;
+    public GameObject StarButton;
+    GameObject touchSound;
+
 
     public bool canDoMove;
 
@@ -30,7 +33,7 @@ public class TileButton : MonoBehaviour
         tempVec = new List<Vector3>();
 
         moveSound = Resources.Load<GameObject>("Sound/TileMoveSound");
-
+        touchSound = Resources.Load<GameObject>("Sound/TouchSound");
         canDoMove = true;
     }
 
@@ -67,6 +70,7 @@ public class TileButton : MonoBehaviour
             return;
 
         anim.SetBool("isEntered", true);
+        Instantiate(touchSound);
     }
 
     void OnMouseExit()
@@ -94,7 +98,9 @@ public class TileButton : MonoBehaviour
         int totalPlayingTweens = gameManager.tweenQueue.Count;
         if (totalPlayingTweens > 0)
             return;
-
+        GameObject go = Instantiate(StarButton);
+        go.transform.position = transform.position;
+        Destroy(go, 0.8f);
         Instantiate(moveSound);
 
         // 타일 스왑 시킨다.

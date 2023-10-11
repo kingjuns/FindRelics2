@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
         Tile = tile;
         
         transform.position = tr.position;
+        transform.forward = -Vector3.left;
     }
 
     public void MoveStart(Queue<Tile> q)

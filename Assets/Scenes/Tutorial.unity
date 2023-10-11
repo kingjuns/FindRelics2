@@ -777,6 +777,7 @@ MonoBehaviour:
   PlayingAnimSpeed: 0.5
   hasGameEnded: 0
   UI_Clear_Prefab: {fileID: 0}
+  checkTiles: []
 --- !u!1 &493754051
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +928,8 @@ MonoBehaviour:
   dialogs:
   - speaker: 0
     dialogue: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uBA74 \uD654\uC0B4\uD45C \uBC29\uD5A5\uC73C\uB85C
-      \uD0C0\uC77C\uC774 \uC6C0\uC9C1\uC785\uB2C8\uB2E4."
+      \uD0C0\uC77C\uC774 \uC6C0\uC9C1\uC785\uB2C8\uB2E4.\n\uC774\uAC83\uC744 \uC774\uC6A9\uD558\uC5EC
+      \uAE38\uC744 \uC644\uC131\uD574 \uBCF4\uC138\uC694!."
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -998,7 +1000,7 @@ MonoBehaviour:
   dialogs:
   - speaker: 0
     dialogue: "\uC774 \uC9C0\uC810\uAE4C\uC9C0 \uD0C0\uC77C\uC744 \uC5F0\uACB0\uD558\uBA74
-      \uD074\uB9AC\uC5B4 \uB429\uB2C8\uB2E4."
+      \uD074\uB9AC\uC5B4 \uB429\uB2C8\uB2E4. "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -1993,7 +1995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC774\uC81C \uD0C0\uC77C\uC744 \uC62E\uAE30\uBA74 \uB429\uB2C8\uB2E4."
+    dialogue: "\uD0C0\uC77C\uC744 \uD55C\uBC88 \uC62E\uACA8 \uBCF4\uC138\uC694!."
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2076,7 +2078,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f225f0544f459334d98c255dcb53371d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d135e33d3f998ba49af8e9588aba32b9, type: 2}
   m_sharedMaterial: {fileID: 6320273088021783434, guid: f225f0544f459334d98c255dcb53371d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2140,7 +2142,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1341002359
@@ -2198,7 +2200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC5F4\uAC00\uC9C0"
+    dialogue: "\uC774\uAC83\uC740 3x3\uD37C\uC990\uC785\uB2C8\uB2E4. "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2279,10 +2281,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 1
+  m_text: 'Tutorial
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 89a14e50bdf52034e91b98aaf3615d61, type: 2}
-  m_sharedMaterial: {fileID: 235499532518218212, guid: 89a14e50bdf52034e91b98aaf3615d61, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d135e33d3f998ba49af8e9588aba32b9, type: 2}
+  m_sharedMaterial: {fileID: -2635532226212365975, guid: d135e33d3f998ba49af8e9588aba32b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2403,7 +2407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uC2DC\uC791 \uC9C0\uC810 \uC785\uB2C8\uB2E4."
+    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uC2DC\uC791 \uC9C0\uC810 \uC785\uB2C8\uB2E4. "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2919,7 +2923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uB05D \uC9C0\uC810 \uC785\uB2C8\uB2E4."
+    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uB05D \uC9C0\uC810 \uC785\uB2C8\uB2E4. "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2989,7 +2993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uD29C\uD1A0\uB9AC\uC5BC\uC5D0 \uC624\uC2E0\uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4."
+    dialogue: "\uD29C\uD1A0\uB9AC\uC5BC\uC5D0 \uC624\uC2E0\uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.  "
   imageDialogs:
   - {fileID: 326443161}
   textNames:

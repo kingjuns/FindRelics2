@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     // BFS의 결과 순서를 저장할 큐를 선언해준다.
     Queue<Tile> resultQueue = new Queue<Tile>();
+    [SerializeField]
+    List<Tile> checkTiles = new List<Tile>();
     void BFS(Tile now)
     {
         Queue<Tile> q = new Queue<Tile>();
@@ -94,6 +96,7 @@ public class GameManager : MonoBehaviour
                         {
                             current.isVisited = true;
                             resultQueue.Enqueue(current);
+                            checkTiles.Add(current);
                         }
                         continue;
                     }
@@ -134,6 +137,12 @@ public class GameManager : MonoBehaviour
         music = Resources.Load<GameObject>("Sound/Music");
 
         SpawnStage();
+
+        FadeEffect ef = FindObjectOfType<FadeEffect>();
+        ef.FadeIn(() => {
+
+        });
+        
     }
 
     void Start()
@@ -216,5 +225,7 @@ public class GameManager : MonoBehaviour
         cameraPos.y = Level.Row + 1;
         // 카메라 위치를 갱신하기
         Camera.main.transform.position = cameraPos;
+
+       
     }
 }
