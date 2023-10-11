@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     LayerMask layerConncet;
 
     public GameObject UI_Clear_Prefab;
+    public GameObject UI_Over_Prefab;
 
     public EffectData[] effectDatas;  
 
@@ -132,15 +133,13 @@ public class GameManager : MonoBehaviour
         hasGameEnded = false;
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
-        music = Resources.Load<GameObject>("Sound/Music");        
+        UI_Over_Prefab = Resources.Load<GameObject>("UI/FailCanvas");
     }
 
     void Start()
     {
         SpawnStage();
         CameraSetting();
-
-        Instantiate(music);
     }
 
     // 1 프레임 이후 처리할 코드
