@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     List<Tile> spawnedTiles = new List<Tile>();
     public List<Tile> SpawnedTiles { get { return spawnedTiles; } }
 
+    //타이머 
+    private TimeController timerController;
+
     // 게임 종료 불리언 변수
     public bool hasGameEnded;
 
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
             if (current.isDestination)
             {
                 resultQueue.Enqueue(current);
+                timerController.StopTimer();
                 // 게임 종료 변수 활성화 시키기
                 hasGameEnded = true;
                 // 캐릭터 움직이기
@@ -152,7 +156,8 @@ public class GameManager : MonoBehaviour
     {
         CameraSetting();
 
-      
+        timerController = FindObjectOfType<TimeController>();
+
         MoveTilesAnimation(spawnedTiles);
     }
 
