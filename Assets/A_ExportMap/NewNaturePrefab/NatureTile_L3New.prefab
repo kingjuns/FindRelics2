@@ -222,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5604177187772718448}
   - component: {fileID: -7269866700927198463}
+  - component: {fileID: -801113564289960501}
   m_Layer: 8
   m_Name: NatureTile_L3New
   m_TagString: Tile
@@ -261,6 +262,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &-801113564289960501
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7310879529797275887}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7590483361764542716
 GameObject:
   m_ObjectHideFlags: 0

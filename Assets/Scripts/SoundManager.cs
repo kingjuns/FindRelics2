@@ -26,13 +26,16 @@ public class SoundManager : MonoBehaviour
     {
         if (scene.name == "MainScene")
         {
-            BGSound.Stop();
-            BGSound.clip = null;            
-            return;
+            if (BGSound != null && BGSound.isPlaying) 
+            { BGSound.Stop(); }
+            //BGSound.clip = null;
+            //BGSound.mute = true;
+                        
+            //return;
         }
         else
         {
-            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            int currentScene = SceneManager.GetActiveScene().buildIndex -2;
             int clipIndex = ((currentScene - 1) / 3) % BGlist.Length;
             BGSoundPlay(BGlist[clipIndex]);
         }
@@ -44,15 +47,13 @@ public class SoundManager : MonoBehaviour
     {
         if (BGSound != null)
         {
+            BGSound.mute = false;
             BGSound.clip = clip;
             BGSound.loop = true;
             BGSound.volume = 0.15f;
             BGSound.Play();
         }
-        else
-        {
-            BGSound.Stop();
-        }
+       
     }
     public void BGSoundStop()
     {

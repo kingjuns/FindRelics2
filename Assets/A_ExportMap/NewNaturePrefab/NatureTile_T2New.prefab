@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506024269702458726}
   - component: {fileID: 449912781171727335}
+  - component: {fileID: -6761281955408085303}
   m_Layer: 8
   m_Name: NatureTile_T2New
   m_TagString: Tile
@@ -216,6 +217,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &-6761281955408085303
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272340765529898035}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &485433957252740527
 PrefabInstance:
   m_ObjectHideFlags: 0

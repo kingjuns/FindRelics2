@@ -33,13 +33,17 @@ public class TimeController : MonoBehaviour
             string timeString = string.Format("{0:00}", seconds);
             timerText.text = "Time: " + timeString;
         }
-        else timerText.text = " ";
+        else
+        {
+            timerText.text = " ";
+        }
     }
-    
+
 
     public void StopTimer()
     {
         // 타이머를 정지합니다.
         isTimerRunning = false;
+        
     }
 }

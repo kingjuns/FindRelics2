@@ -15,6 +15,9 @@ public class Tile : MonoBehaviour
 
     LevelData levelData;
 
+
+
+
     // 콜라이더 오브젝트를 저장하는 리스트
     public List<Transform> colls = new List<Transform>();
     // 평지 위치 값을 저장하는 변수
@@ -25,6 +28,11 @@ public class Tile : MonoBehaviour
 
     // 마지막 타일인지 확인하는 변수
     public bool isDestination;
+
+
+
+
+
 
     public void Initialize(TileType type, int rot, int x, int y, LevelData level)
     {

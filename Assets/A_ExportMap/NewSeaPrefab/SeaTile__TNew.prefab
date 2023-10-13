@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3949441782311921943}
   - component: {fileID: 3949441782311921936}
+  - component: {fileID: -9205961302555073565}
   m_Layer: 8
   m_Name: SeaTile__TNew
   m_TagString: Tile
@@ -81,6 +82,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &-9205961302555073565
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949441782311921937}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3949441782854004904
 GameObject:
   m_ObjectHideFlags: 0
