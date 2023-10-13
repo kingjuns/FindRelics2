@@ -308,9 +308,11 @@ MonoBehaviour:
   CharacterPrefab: {fileID: 4880427722732886883, guid: 41e18ddba69eddd4c9ab02cdcf2ebc87, type: 3}
   Player: {fileID: 0}
   PlayingAnimSpeed: 0.5
+  TileUpDownAnimSpeed: 1
   hasGameEnded: 0
   UI_Clear_Prefab: {fileID: 0}
   checkTiles: []
+  setTilesTr: []
 --- !u!1 &547336348
 GameObject:
   m_ObjectHideFlags: 0
