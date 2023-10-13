@@ -4,16 +4,11 @@ using UnityEngine;
 using static PublicLibrary;
 using System.Linq;
 using DG.Tweening;
-using System;
-
- 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public CircleTransition circleTransition;
-
-    private TimeController timerController;
 
     [Header("Spawn Level Value")]
     public LevelData Level;
@@ -31,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Animations")]
     public float PlayingAnimSpeed = 0.3f;
-    public float TileUpDownAnimSpeed = 0.3f;
+    public float TileUpDownAnimSpeed = 10f;
 
     [Header("Tile Spawned List")]
     List<Tile> spawnedTiles = new List<Tile>();
@@ -47,9 +42,6 @@ public class GameManager : MonoBehaviour
     LayerMask layerConncet;
 
     public GameObject UI_Clear_Prefab;
-    public GameObject UI_Over_Prefab;
-
-    public EffectData[] effectDatas;
 
     // BFS의 결과 순서를 저장할 큐를 선언해준다.
     Queue<Tile> resultQueue = new Queue<Tile>();
@@ -75,7 +67,6 @@ public class GameManager : MonoBehaviour
                 resultQueue.Enqueue(current);
                 // 게임 종료 변수 활성화 시키기
                 hasGameEnded = true;
-                timerController.StopTimer();
                 // 캐릭터 움직이기
                 Player.MoveStart(resultQueue);
                 break;
@@ -126,7 +117,7 @@ public class GameManager : MonoBehaviour
         BFS(Player.Tile);
     }
     
-    
+    GameObject music;
 
     // 모든 타일의 방문 여부를 초기화하는 함수
     private void DisableVisitedTiles()
@@ -144,10 +135,9 @@ public class GameManager : MonoBehaviour
         hasGameEnded = false;
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
-        UI_Over_Prefab = Resources.Load<GameObject>("UI/FailCanvas");
+        music = Resources.Load<GameObject>("Sound/Music");
 
         SpawnStage();
-
 
         FadeEffect ef = FindObjectOfType<FadeEffect>();
         ef.FadeIn(() => {
@@ -160,10 +150,9 @@ public class GameManager : MonoBehaviour
     {
         CameraSetting();
 
-        MoveTilesAnimation(spawnedTiles);
+        Instantiate(music);
 
-       timerController = FindObjectOfType<TimeController>();
-       
+        MoveTilesAnimation(spawnedTiles);
     }
 
     // 1 프레임 이후 처리할 코드
@@ -219,21 +208,13 @@ public class GameManager : MonoBehaviour
                 
                 // 생성된 타일 적재하기
                 spawnedTiles.Add(newTile);
+
                 xPos += defaultSpacing + spawnSpacing;
             }
             xPos = 0;
             yPos += defaultSpacing + spawnSpacing;
         }
         yPos = 0;
-        
-    }
-
-    //클리어 후 효과 실행
-    public void LoadStageEffect(int stage)
-    {
-        //스테이지 번호에 맞는 이펙트 로드
-        EffectData effect = effectDatas[stage];
-        Instantiate(effect.Effect_Prefab, effect.EffectPos, Quaternion.identity);
     }
 
     void CameraSetting()
@@ -251,45 +232,44 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public List<Tile> playTiles = new List<Tile>();
+    List<Tile> playTiles = new List<Tile>();
     public Vector3[] setTilesTr;
-    void MoveTilesAnimation(List<Tile> SpawnedTiles)
+    void MoveTilesAnimation(List<Tile> spawnedTiles)
     {
-        List<Tile> playTiles = new List<Tile>(); //타일 불러오기
-        GetTile(spawnedTiles, playTiles); // 타일들 애니메이션 실행 시키기
-        SetMoveTiles( playTiles);
-        PlayAnimTiles(playTiles); //
+        GetMoveTiles(spawnedTiles, playTiles); // 타일 불러오기
+        SetMoveTiles(playTiles); // 타일들 플레이 순서 랜덤 셔플 시키기
+        PlayAnimTiles(playTiles); // 타일들 애니메이션 실행 시키기
     }
 
-
-    void GetTile(List<Tile> spawndTiles, List<Tile> tiles)
+    void GetMoveTiles(List<Tile> spawnedTiles, List<Tile> tiles)
     {
-        foreach (Tile tile in spawndTiles)
+        foreach(Tile tile in spawnedTiles)
         {
-            if ((int)tile.Type >= 4 && (int)tile.Type <=7)
+            if ((int)tile.Type >= 4 && (int)tile.Type <= 7)
             {
                 tiles.Add(tile);
             }
         }
     }
+    void SetMoveTiles(List<Tile> tiles)
+    {
+        for(int i = 0; i < tiles.Count; i++)
+        {
+            int rand1 = Random.Range(0, tiles.Count);
+            int rand2 = Random.Range(0, tiles.Count);
 
-    // 타일에 애니메이션 실행
-    void SetMoveTiles( List<Tile> tiles)
+            Tile tempTile = tiles[rand1];
+            tiles[rand1] = tiles[rand2];
+            tiles[rand2] = tempTile;
+        }
+
+        setTilesTr = playTiles.Select(item => item.transform.position).ToArray();
+    }
+
+    void PlayAnimTiles(List<Tile> tiles)
     {
         for (int i = 0; i < tiles.Count; i++)
         {
-            int rand1 = UnityEngine.Random.Range(0,tiles.Count);
-            int rand2 = UnityEngine.Random.Range(0,tiles.Count);
-            
-
-            Tile tampTile = tiles[rand1];
-            tiles[rand1] = tiles[rand2];
-            tiles[rand1] = tampTile;
         }
-        setTilesTr = playTiles.Select(item => item.transform.position).ToArray();
-    }
-    void PlayAnimTiles(List<Tile> tiles)
-    {
-       
     }
 }
