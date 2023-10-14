@@ -25,18 +25,10 @@ public class SoundManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "MainScene")
-        {
-            if (BGSound != null && BGSound.clip != BGlist[3])
-            {
-                BGSoundPlay(BGlist[3]);// BGlist[3] 메인화면 전용 음악
-                SetVolume(0.14f);
-            }
-        }
-
+      
 
         // 메인화면 씬이면 전용 배경음악을 재생
-        else if (scene.name == "MainScene")
+        if (scene.name == "MainScene")
         {
             if ( BGSound != null && BGSound.clip != BGlist[3])
             {
