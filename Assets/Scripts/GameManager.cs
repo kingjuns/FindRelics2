@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     List<Tile> spawnedTiles = new List<Tile>();
     public List<Tile> SpawnedTiles { get { return spawnedTiles; } }
 
+    //타이머 
+    private TimeController timerController;
+
     // 게임 종료 불리언 변수
     public bool hasGameEnded;
 
@@ -42,6 +45,8 @@ public class GameManager : MonoBehaviour
     LayerMask layerConncet;
 
     public GameObject UI_Clear_Prefab;
+    public GameObject UI_Over_Prefab;
+    public EffectData[] effectDatas;
 
     // BFS의 결과 순서를 저장할 큐를 선언해준다.
     Queue<Tile> resultQueue = new Queue<Tile>();
@@ -65,6 +70,7 @@ public class GameManager : MonoBehaviour
             if (current.isDestination)
             {
                 resultQueue.Enqueue(current);
+                timerController.StopTimer();
                 // 게임 종료 변수 활성화 시키기
                 hasGameEnded = true;
                 // 캐릭터 움직이기
@@ -135,7 +141,7 @@ public class GameManager : MonoBehaviour
         hasGameEnded = false;
         layerConncet = 1 << LayerMask.NameToLayer("Connect");
         UI_Clear_Prefab = Resources.Load<GameObject>("UI/ClearCanvas");
-        music = Resources.Load<GameObject>("Sound/Music");
+        UI_Over_Prefab = Resources.Load<GameObject>("UI/FailCanvas"); 
 
         SpawnStage();
 
@@ -150,7 +156,7 @@ public class GameManager : MonoBehaviour
     {
         CameraSetting();
 
-        Instantiate(music);
+        timerController = FindObjectOfType<TimeController>();
 
         MoveTilesAnimation(spawnedTiles);
     }
@@ -215,6 +221,14 @@ public class GameManager : MonoBehaviour
             yPos += defaultSpacing + spawnSpacing;
         }
         yPos = 0;
+    }
+
+    //클리어 후 효과 실행
+    public void LoadStageEffect(int stage)
+    {
+        //스테이지 번호에 맞는 이펙트 로드
+        EffectData effect = effectDatas[stage];
+        Instantiate(effect.Effect_Prefab, effect.EffectPos, Quaternion.identity);
     }
 
     void CameraSetting()

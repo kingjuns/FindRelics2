@@ -7,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [HideInInspector] public Tile Tile;
-
+ 
     // 이동하는데 걸리는 시간
     public float moveDuration = 1.0f;
 
+    public int stageNumber;
+
     public bool IsMoved = true;
     public bool IsAttacked = true;
+
     public void Initialize(Transform tr, Tile tile)
     {
         Tile = tile;
@@ -29,7 +32,9 @@ public class Player : MonoBehaviour
             GameManager.Instance.tweenQueue.Clear();
 
             // 스테이지 클리어 프리팹 생성하기
-            Instantiate(GameManager.Instance.UI_Clear_Prefab);
+            Instantiate(GameManager.Instance.UI_Clear_Prefab);         
+
+            GameManager.Instance.LoadStageEffect(stageNumber);
 
             return;
         }
