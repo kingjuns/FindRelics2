@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static PublicLibrary;
+using DG.Tweening;
 
 public class Tile : MonoBehaviour
 {
@@ -14,6 +15,20 @@ public class Tile : MonoBehaviour
     public int Y { get; private set; }
 
     LevelData levelData;
+
+    [Header("DoTween && Sin Animation Values")]
+    float amplitude = 0.1f;
+    float speed = 1.0f;
+    float duration = 1.0f;
+    Vector3 initialPosition;
+    Sequence sinMoveSequence;
+    float timeOffset;
+    public bool isPlaying;
+    public float newY;
+
+    public float startTime;
+    public float elapsedTime = 0f;
+    public float savedTime = 0f;
 
     // 콜라이더 오브젝트를 저장하는 리스트
     public List<Transform> colls = new List<Transform>();
@@ -63,5 +78,57 @@ public class Tile : MonoBehaviour
 
         if (Type == TileType.End)
             isDestination = true;
+
+        if (Type >= TileType.Straight)
+        {
+            isPlaying = false;
+            initialPosition = transform.position;
+            timeOffset = Random.Range(0f, speed * Mathf.PI);
+            PlaySequence();
+        }
+    }
+
+    public void PlaySequence()
+    {
+        sinMoveSequence = DOTween.Sequence();
+        // Tween 시작
+        sinMoveSequence.Append(transform.DOMoveY(initialPosition.y + amplitude, duration)
+            .SetLoops(1).OnUpdate(() => {
+                // Sin 함수 움직임 계산하기
+                if (isPlaying == false)
+                {
+                    elapsedTime = Time.time - startTime;
+                    newY = Mathf.Sin((elapsedTime + savedTime) * timeOffset) * amplitude;
+                    transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+                }
+            }));
+
+        sinMoveSequence.OnComplete(() => {
+            // Tween 완료되면 Sin 움직임 다시 시작
+            PlaySequence();
+        });
+    }
+
+    public float CalculatePosY()
+    {
+        return Mathf.Sin((elapsedTime + savedTime) * timeOffset) * amplitude;
+    }
+
+    public Vector3 SetVector(float newY)
+    {
+        return new Vector3(transform.position.x, newY, transform.position.z);
+    }
+
+    public void LoadSaveTime()
+    {
+        // 한 번만 실행
+        if (isPlaying == true)
+        {
+            savedTime = elapsedTime - savedTime; // 이동을 멈추고 현재 경과한 시간을 저장
+        }
+        else
+        {
+            startTime = Time.time; // 이동을 재개하고 시작 시간을 업데이트
+        }
     }
 }

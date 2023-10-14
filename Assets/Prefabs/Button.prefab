@@ -51,6 +51,8 @@ MonoBehaviour:
   anim: {fileID: 6450419282918349447}
   Tile: {fileID: 0}
   tempVec: []
+  StarButton: {fileID: 6966030776331139803, guid: 75b1f1f98d87a9e4cbff1c375fb3c3f3, type: 3}
+  canDoMove: 0
 --- !u!65 &3751835950625698701
 BoxCollider:
   m_ObjectHideFlags: 0

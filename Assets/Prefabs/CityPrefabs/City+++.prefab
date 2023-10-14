@@ -317,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5709468334326687090}
   - component: {fileID: 691625459927748672}
+  - component: {fileID: -2705524283844702777}
   m_Layer: 8
   m_Name: City+++
   m_TagString: Tile
@@ -358,6 +359,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &-2705524283844702777
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709468334326687091}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b568778e0900a604fa05dd77a36e0e94, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &292200821295809316
 PrefabInstance:
   m_ObjectHideFlags: 0
