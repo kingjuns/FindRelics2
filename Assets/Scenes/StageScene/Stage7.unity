@@ -182,7 +182,6 @@ MonoBehaviour:
   effectDatas:
   - {fileID: 11400000, guid: cb957c5ac7ca8b84c8b452272f31b2df, type: 2}
   checkTiles: []
-  playTiles: []
   setTilesTr: []
 --- !u!1 &601625720
 GameObject:
@@ -1237,7 +1236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b83d6d92a0fd490408d111719366e655, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66f93e1b396b03e4dacf8a2049585490, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
