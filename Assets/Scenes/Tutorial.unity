@@ -779,6 +779,8 @@ MonoBehaviour:
   TileUpDownAnimSpeed: 10
   hasGameEnded: 0
   UI_Clear_Prefab: {fileID: 0}
+  UI_Over_Prefab: {fileID: 0}
+  effectDatas: []
   checkTiles: []
   setTilesTr: []
 --- !u!1 &493754051

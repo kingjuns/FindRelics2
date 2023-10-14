@@ -45,6 +45,11 @@ public class SoundManager : MonoBehaviour
                 SetVolume(0.14f);
             }
         }
+        else if (scene.name == "Tutorial")
+        {
+            if (BGSound != null && BGSound.isPlaying)
+            { BGSound.Stop(); }
+        }
         else
         {
             //스테이지 씬에서는 메인 화면의 음악을 정지하고 씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
