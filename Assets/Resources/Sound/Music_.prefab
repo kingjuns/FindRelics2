@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4121187822113946861
+--- !u!1 &783209352388698127
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4121187822113946860}
-  - component: {fileID: 784693926592074636}
-  - component: {fileID: 4121187822113946863}
+  - component: {fileID: 783209352388698126}
+  - component: {fileID: 783209352388698122}
+  - component: {fileID: 783209352388698125}
   m_Layer: 0
   m_Name: Music_
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4121187822113946860
+--- !u!4 &783209352388698126
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121187822113946861}
+  m_GameObject: {fileID: 783209352388698127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,34 +33,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &784693926592074636
+--- !u!114 &783209352388698122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121187822113946861}
+  m_GameObject: {fileID: 783209352388698127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3838da5b74a31f94884012ac1ce8cbb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 30f14bd04ddfd7c4786b90b6aeb4c8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGSound: {fileID: 4121187822113946863}
+  BGSound: {fileID: 783209352388698125}
   BGlist:
-  - {fileID: 8300000, guid: 7bc6c786c61e64d439dca6dfa23717f9, type: 3}
-  - {fileID: 8300000, guid: 3ff21ef4d0d0dac43aea9549a534b9c2, type: 3}
-  - {fileID: 8300000, guid: 0c8cb79a748fa774bb803e84a74e39e2, type: 3}
---- !u!82 &4121187822113946863
+  - {fileID: 8300000, guid: 480b8954ca6db79419ccb662bf777f9b, type: 3}
+  - {fileID: 8300000, guid: a8281cd3dee5c8d43871a81422058a6a, type: 3}
+  - {fileID: 8300000, guid: 81dda6ab798feaf4eb37fd718e6ebeb3, type: 3}
+  - {fileID: 8300000, guid: 74b2a38861d43624c8644aaa619bec32, type: 3}
+--- !u!82 &783209352388698125
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121187822113946861}
+  m_GameObject: {fileID: 783209352388698127}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 74b2a38861d43624c8644aaa619bec32, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
