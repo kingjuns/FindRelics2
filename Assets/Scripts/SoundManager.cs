@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        SetVolume(0.14f);
         if (instance == null)
         {
             instance = this;
@@ -41,7 +42,7 @@ public class SoundManager : MonoBehaviour
             if (BGSound != null && BGSound.clip != BGlist[3])
             {
                 BGSoundPlay(BGlist[3]);// BGlist[3] 메인화면 전용 음악
-                SetVolume(0.2f);
+                SetVolume(0.14f);
             }
         }
         else
