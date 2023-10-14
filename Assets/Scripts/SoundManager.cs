@@ -48,8 +48,9 @@ public class SoundManager : MonoBehaviour
         {
             //스테이지 씬에서는 메인 화면의 음악을 정지하고 씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
             if (BGSound.isPlaying)
+            {
                 BGSound.Stop();
-
+            }
 
             //씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
             //BGlist[0~2] 0:초원,1:도시,2:해변
