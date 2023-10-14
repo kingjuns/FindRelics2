@@ -404,6 +404,7 @@ RectTransform:
   m_Children:
   - {fileID: 1430210406}
   - {fileID: 1892951870}
+  - {fileID: 1539201890}
   - {fileID: 604146658}
   - {fileID: 621239616}
   m_Father: {fileID: 0}
@@ -596,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5176471}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -768,16 +769,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleTransition: {fileID: 280887710}
-  Level: {fileID: 11400000, guid: de291fec2e777ce4db93c19f6990ce2d, type: 2}
+  Level: {fileID: 11400000, guid: e924fce44d5daa94282944c801286af9, type: 2}
   spawnSpacing: 0.25
   defaultSpacing: 1
   startTile: {fileID: 0}
   CharacterPrefab: {fileID: 4880427722732886883, guid: 41e18ddba69eddd4c9ab02cdcf2ebc87, type: 3}
   Player: {fileID: 0}
   PlayingAnimSpeed: 0.5
+  TileUpDownAnimSpeed: 10
   hasGameEnded: 0
   UI_Clear_Prefab: {fileID: 0}
   checkTiles: []
+  setTilesTr: []
 --- !u!1 &493754051
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,9 +930,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uBA74 \uD654\uC0B4\uD45C \uBC29\uD5A5\uC73C\uB85C
-      \uD0C0\uC77C\uC774 \uC6C0\uC9C1\uC785\uB2C8\uB2E4.\n\uC774\uAC83\uC744 \uC774\uC6A9\uD558\uC5EC
-      \uAE38\uC744 \uC644\uC131\uD574 \uBCF4\uC138\uC694!."
+    dialogue: "\uC774\uAC78 \uC774\uC6A9\uD574 \uD0C0\uC77C\uC744 \uD45C\uC2DC\uB41C
+      \uBC29\uD5A5\uC73C\uB85C \uBC00 \uC218 \uC788\uC5B4! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -999,8 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC774 \uC9C0\uC810\uAE4C\uC9C0 \uD0C0\uC77C\uC744 \uC5F0\uACB0\uD558\uBA74
-      \uD074\uB9AC\uC5B4 \uB429\uB2C8\uB2E4. "
+    dialogue: "\uC800\uAE30\uAE4C\uC9C0 \uC5B4\uC9C0\uB7EC\uC9C4 \uAE38\uC744 \uC5F0\uACB0\uD574\uC8FC\uBA74
+      \uB0B4\uAC00 \uAC08\uC218\uC788\uC5B4! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -1053,7 +1055,7 @@ RectTransform:
   m_Children:
   - {fileID: 326443160}
   m_Father: {fileID: 162031332}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1092,7 +1094,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 162031332}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1995,7 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uD0C0\uC77C\uC744 \uD55C\uBC88 \uC62E\uACA8 \uBCF4\uC138\uC694!."
+    dialogue: "\uD0C0\uC77C\uC744 \uD55C\uBC88 \uC62E\uACA8 \uBD10!."
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2200,7 +2202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC774\uAC83\uC740 3x3\uD37C\uC990\uC785\uB2C8\uB2E4. "
+    dialogue: "\uC5B4\uB5BB\uAC8C \uD558\uB0D0\uAD6C? \uB0B4\uAC00 \uC124\uBA85\uD574
+      \uC904\uAC8C! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2209,7 +2212,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &1356340206
 MonoBehaviour:
@@ -2360,6 +2363,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430210405}
   m_CullTransparentMesh: 1
+--- !u!1 &1539201889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539201890}
+  - component: {fileID: 1539201892}
+  - component: {fileID: 1539201891}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1539201890
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539201889}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 162031332}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 565, y: 15}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1539201891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539201889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: bbc11e6d08059fb41bea22d59a9c390d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1539201892
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539201889}
+  m_CullTransparentMesh: 1
 --- !u!1 &1608372403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uC2DC\uC791 \uC9C0\uC810 \uC785\uB2C8\uB2E4. "
+    dialogue: "\uC5EC\uAE34 \uB0B4\uAC00 \uCD9C\uBC1C\uD560 \uC7A5\uC18C\uC57C! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2477,7 +2556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC774\uAC83\uC740 \uBC84\uD2BC\uC785\uB2C8\uB2E4."
+    dialogue: "\uC774\uAC74 \uBC84\uD2BC\uC774\uC57C! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2726,7 +2805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC774\uC81C \uBCF8 \uAC8C\uC784\uC73C\uB85C \uAC00\uBCFC\uAE4C\uC694? "
+    dialogue: "\uC774\uC81C \uC54C\uACA0\uC9C0? \uB098\uB97C \uC9D1\uC73C\uB85C \uBCF4\uB0B4\uC918!."
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2923,7 +3002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uC5EC\uAE30\uB294 \uD0C0\uC77C\uC758 \uB05D \uC9C0\uC810 \uC785\uB2C8\uB2E4. "
+    dialogue: "\uB09C \uC800\uAE30\uB85C \uAC00\uC57C \uD574!."
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -2993,7 +3072,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uD29C\uD1A0\uB9AC\uC5BC\uC5D0 \uC624\uC2E0\uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.  "
+    dialogue: "\uC800\uAE30 \uB098 \uC880 \uB3C4\uC640\uC904 \uC218\uC788\uC5B4? "
+  - speaker: 0
+    dialogue: "\uB0B4\uC774\uB984\uC740 \uB098\uB098! \uC9C0\uAE08 \uC9D1\uC5D0 \uAC00\uB294\uAE38\uC5D0
+      \uB204\uAC00 \uAE38\uC744 \uB9C8\uBC95\uC73C\uB85C \uBC14\uAFD4\uB1A8\uC5B4. "
+  - speaker: 0
+    dialogue: "\uB0B4\uAC00 \uC9D1\uC5D0 \uAC08 \uC218 \uC788\uAC8C \uB108\uAC00
+      \uC5EC\uAE30 \uBCF4\uC774\uB294 \uD0C0\uC77C\uC744 \uC62E\uACA8 \uAE38\uC744
+      \uB9CC\uB4E4\uC5B4\uC918! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
@@ -3002,7 +3088,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &2121553978
 MonoBehaviour:
