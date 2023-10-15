@@ -1497,5 +1497,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: black
       objectReference: {fileID: 0}
+    - target: {fileID: 7300701397234823906, guid: 6f468c6ad5275044695270e03aa48b49, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300701397234823906, guid: 6f468c6ad5275044695270e03aa48b49, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300701397234823917, guid: 6f468c6ad5275044695270e03aa48b49, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f468c6ad5275044695270e03aa48b49, type: 3}
