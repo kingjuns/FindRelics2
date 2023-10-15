@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-
+        BGSoundPlay(BGlist[4]);
         SetVolume(0.14f);
         if (instance == null)
         {
@@ -35,24 +35,30 @@ public class SoundManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //인트로 씬이면 전용 배경음악을 재생
-        // scene.name == "인트로 씬이름 넣기 "
-        if (scene.name == "")
+        
+        if (scene.name == "TitleScene")
         {
             if (BGSound != null && BGSound.clip != BGlist[4])
             {
-                BGSoundPlay(BGlist[4]);// BGlist[4] 인트로 전용 음악
-                SetVolume(0.2f);
+                BGSoundPlay(BGlist[4]);// BGlist[3] 메인화면 전용 음악
+                SetVolume(0.14f);
             }
         }
+      
 
         // 메인화면 씬이면 전용 배경음악을 재생
         else if (scene.name == "MainScene")
         {
-            if (BGSound != null && BGSound.clip != BGlist[3])
+            if ( BGSound != null && BGSound.clip != BGlist[3])
             {
                 BGSoundPlay(BGlist[3]);// BGlist[3] 메인화면 전용 음악
                 SetVolume(0.14f);
             }
+        }
+        else if (scene.name == "Tutorial")
+        {
+            if (BGSound != null && BGSound.isPlaying)
+            { BGSound.Stop(); }
         }
         else
         {
@@ -65,10 +71,9 @@ public class SoundManager : MonoBehaviour
             //씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
             //BGlist[0~2] 0:초원,1:도시,2:해변
             int currentScene = SceneManager.GetActiveScene().buildIndex - 2;
-            int clipIndex = ((currentScene - 1) / 3) % BGlist.Length;
+            int clipIndex = ((currentScene - 1) / 3) % (BGlist.Length -2);
             BGSoundPlay(BGlist[clipIndex]);
         }
-
     }
 
 
@@ -79,7 +84,6 @@ public class SoundManager : MonoBehaviour
             BGSound.mute = false;
             BGSound.clip = clip;
             BGSound.loop = true;
-            //BGSound.volume = 0.15f;
             SetVolume(0.15f);
             BGSound.Play();
         }
