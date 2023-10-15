@@ -27,7 +27,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _CenterX: 0.5
-    - _CenterY: 0.5036483
+    - _CenterY: 0.5089521
     - _Radius: 1
     m_Colors:
     - _Color: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 1}

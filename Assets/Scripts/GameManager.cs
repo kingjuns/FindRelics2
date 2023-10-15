@@ -145,10 +145,7 @@ public class GameManager : MonoBehaviour
 
         SpawnStage();
 
-        FadeEffect ef = FindObjectOfType<FadeEffect>();
-        ef.FadeIn(() => {
-
-        });
+        
         
     }
 
@@ -159,6 +156,11 @@ public class GameManager : MonoBehaviour
         timerController = FindObjectOfType<TimeController>();
 
         MoveTilesAnimation(spawnedTiles);
+
+        FadeEffect ef = FindObjectOfType<FadeEffect>();
+        ef.FadeIn(() => {
+
+        });
     }
 
     // 1 프레임 이후 처리할 코드
