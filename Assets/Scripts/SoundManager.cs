@@ -57,8 +57,11 @@ public class SoundManager : MonoBehaviour
         }
         else if (scene.name == "Tutorial")
         {
-            if (BGSound != null && BGSound.isPlaying)
-            { BGSound.Stop(); }
+            if (BGSound != null && BGSound.clip != BGlist[0])
+            {
+                BGSoundPlay(BGlist[0]);// BGlist[3] 메인화면 전용 음악
+                SetVolume(0.14f);
+            }
         }
         else
         {
