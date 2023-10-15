@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-
+        BGSoundPlay(BGlist[4]);
         SetVolume(0.14f);
         if (instance == null)
         {
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //인트로 씬이면 전용 배경음악을 재생
-        // scene.name == "인트로 씬이름 넣기 "
+        
         if (scene.name == "TitleScene")
         {
             if (BGSound != null && BGSound.clip != BGlist[4])
@@ -84,7 +84,6 @@ public class SoundManager : MonoBehaviour
             BGSound.mute = false;
             BGSound.clip = clip;
             BGSound.loop = true;
-            //BGSound.volume = 0.15f;
             SetVolume(0.15f);
             BGSound.Play();
         }
