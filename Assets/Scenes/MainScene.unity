@@ -3280,10 +3280,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 596087241}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: SceneLoad
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3779,3 +3779,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a8281cd3dee5c8d43871a81422058a6a, type: 3}
   - {fileID: 8300000, guid: 81dda6ab798feaf4eb37fd718e6ebeb3, type: 3}
   - {fileID: 8300000, guid: 38ed6635a92b05241bbc153251a03d51, type: 3}
+  - {fileID: 8300000, guid: b606381ed48fe074594ccd03aceac3d4, type: 3}
