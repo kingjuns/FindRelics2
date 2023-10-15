@@ -230,6 +230,7 @@ public class GameManager : MonoBehaviour
         EffectData effect = effectDatas[stage];
         Instantiate(effect.Effect_Prefab, effect.EffectPos, Quaternion.identity);
     }
+    
 
     void CameraSetting()
     {

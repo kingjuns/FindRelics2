@@ -20,4 +20,11 @@ public class SceneLoader : MonoBehaviour
     {
         Application.Quit();
     }
+
+    //다음 스테이지
+    public void NextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
 }

@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public AudioSource BGSound;
     public AudioClip[] BGlist;
 
+    
+
     public static SoundManager instance;
 
     private void Awake()
     {
+
         SetVolume(0.14f);
         if (instance == null)
         {
@@ -21,7 +25,12 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
+
+    
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -32,7 +41,7 @@ public class SoundManager : MonoBehaviour
             if (BGSound != null && BGSound.clip != BGlist[4])
             {
                 BGSoundPlay(BGlist[4]);// BGlist[4] 인트로 전용 음악
-                SetVolume(0.2f); 
+                SetVolume(0.2f);
             }
         }
 
@@ -48,18 +57,18 @@ public class SoundManager : MonoBehaviour
         else
         {
             //스테이지 씬에서는 메인 화면의 음악을 정지하고 씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
-            if (BGSound.isPlaying)
+            if (BGSound != null && BGSound.isPlaying)
             {
                 BGSound.Stop();
             }
 
             //씬 번호에 따라 배경음악 클립 인덱스를 계산하고 재생
             //BGlist[0~2] 0:초원,1:도시,2:해변
-            int currentScene = SceneManager.GetActiveScene().buildIndex -2;
+            int currentScene = SceneManager.GetActiveScene().buildIndex - 2;
             int clipIndex = ((currentScene - 1) / 3) % BGlist.Length;
             BGSoundPlay(BGlist[clipIndex]);
         }
-        
+
     }
 
 
@@ -74,17 +83,22 @@ public class SoundManager : MonoBehaviour
             SetVolume(0.15f);
             BGSound.Play();
         }
-       
+
     }
 
     public void BGSoundStop()
     {
-        BGSound.Stop();
+        AudioListener.pause = true;
     }
+
+    
 
     //볼륨 조절
     public void SetVolume(float volume)
     {
         BGSound.volume = volume;
     }
+
+   
+
 }
