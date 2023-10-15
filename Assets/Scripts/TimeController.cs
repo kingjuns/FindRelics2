@@ -31,7 +31,7 @@ public class TimeController : MonoBehaviour
             // 시간을 분과 초로 변환하여 Text에 표시합니다.
             int seconds = Mathf.CeilToInt(timer);
             string timeString = string.Format("{0:00}", seconds);
-            timerText.text = "Time: " + timeString;
+            timerText.text = timeString;
         }
         else
         {
