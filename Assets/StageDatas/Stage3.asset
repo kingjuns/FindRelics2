@@ -41,10 +41,10 @@ MonoBehaviour:
     Rotation: 0
   - TileType: 4
     TilePrefab: {fileID: 6094206162893050846, guid: d72a83be7a919a74cb63170323abb473, type: 3}
-    Rotation: 1
+    Rotation: 2
   - TileType: 7
     TilePrefab: {fileID: 7310879529797275887, guid: c03a6fa4a9497684087949ae669c88ca, type: 3}
-    Rotation: 0
+    Rotation: 3
   - TileType: 7
     TilePrefab: {fileID: 6413194655405477990, guid: dd5ed531eb3ec7340bf64c72b18cc90d, type: 3}
     Rotation: 1
@@ -60,9 +60,9 @@ MonoBehaviour:
   - TileType: 1
     TilePrefab: {fileID: 3751835950625698696, guid: 5639d1f102f25b148b3cd7a2da30e577, type: 3}
     Rotation: 0
-  - TileType: 7
-    TilePrefab: {fileID: 6413194655405477990, guid: dd5ed531eb3ec7340bf64c72b18cc90d, type: 3}
-    Rotation: 3
+  - TileType: 4
+    TilePrefab: {fileID: 8204992641200778455, guid: 0468fcb350ccef44399cd48c5061d37a, type: 3}
+    Rotation: 1
   - TileType: 5
     TilePrefab: {fileID: 1573841646530786630, guid: bf04553070abc3f468bb864eb490c019, type: 3}
     Rotation: 0
@@ -87,11 +87,11 @@ MonoBehaviour:
   - TileType: 4
     TilePrefab: {fileID: 6094206162893050846, guid: d72a83be7a919a74cb63170323abb473, type: 3}
     Rotation: 1
-  - TileType: 6
+  - TileType: 4
     TilePrefab: {fileID: 8272340765529898035, guid: 87f396862737f524aa445bbc0c1f7387, type: 3}
-    Rotation: 2
-  - TileType: 6
-    TilePrefab: {fileID: 5923127208517915360, guid: cacce7f1335effb439753bb492e9a639, type: 3}
+    Rotation: 1
+  - TileType: 7
+    TilePrefab: {fileID: 1691110761779710048, guid: 19801af8118304147980b1189c80e05e, type: 3}
     Rotation: 3
   - TileType: 4
     TilePrefab: {fileID: 1028288595120181383, guid: 9767c69ad20b3da438936257ebe50155, type: 3}
@@ -102,15 +102,15 @@ MonoBehaviour:
   - TileType: 1
     TilePrefab: {fileID: 3751835950625698696, guid: 5639d1f102f25b148b3cd7a2da30e577, type: 3}
     Rotation: 0
-  - TileType: 6
-    TilePrefab: {fileID: 480999334796287655, guid: 2d00be99bff206049b21db767f8412ed, type: 3}
+  - TileType: 7
+    TilePrefab: {fileID: 7310879529797275887, guid: c03a6fa4a9497684087949ae669c88ca, type: 3}
     Rotation: 2
   - TileType: 4
     TilePrefab: {fileID: 1028288595120181383, guid: 9767c69ad20b3da438936257ebe50155, type: 3}
     Rotation: 0
-  - TileType: 6
-    TilePrefab: {fileID: 5923127208517915360, guid: cacce7f1335effb439753bb492e9a639, type: 3}
-    Rotation: 1
+  - TileType: 4
+    TilePrefab: {fileID: 6094206162893050846, guid: d72a83be7a919a74cb63170323abb473, type: 3}
+    Rotation: 0
   - TileType: 4
     TilePrefab: {fileID: 8204992641200778455, guid: 0468fcb350ccef44399cd48c5061d37a, type: 3}
     Rotation: 1

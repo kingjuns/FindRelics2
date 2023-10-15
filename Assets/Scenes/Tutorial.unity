@@ -2943,7 +2943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - speaker: 0
-    dialogue: "\uB09C \uC800\uAE30\uB85C \uAC00\uC57C \uD574!."
+    dialogue: "\uB09C \uC800\uAE30\uB85C \uAC00\uC57C \uD574! "
   imageDialogs:
   - {fileID: 326443161}
   textNames:
