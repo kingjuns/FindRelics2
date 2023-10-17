@@ -87,9 +87,9 @@ MonoBehaviour:
   - TileType: 4
     TilePrefab: {fileID: 6094206162893050846, guid: d72a83be7a919a74cb63170323abb473, type: 3}
     Rotation: 1
-  - TileType: 4
-    TilePrefab: {fileID: 8272340765529898035, guid: 87f396862737f524aa445bbc0c1f7387, type: 3}
-    Rotation: 1
+  - TileType: 7
+    TilePrefab: {fileID: 1691110761779710048, guid: 19801af8118304147980b1189c80e05e, type: 3}
+    Rotation: 4
   - TileType: 7
     TilePrefab: {fileID: 1691110761779710048, guid: 19801af8118304147980b1189c80e05e, type: 3}
     Rotation: 3
