@@ -942,7 +942,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &570423362
 MonoBehaviour:
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &579919252
 MonoBehaviour:
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &1335964985
 MonoBehaviour:
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &1608372406
 MonoBehaviour:
@@ -2567,7 +2567,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &1790911251
 MonoBehaviour:
@@ -2816,7 +2816,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &2007178871
 MonoBehaviour:
@@ -3013,7 +3013,7 @@ MonoBehaviour:
   - {fileID: 1341002358}
   objectArrows:
   - {fileID: 1325379504}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   keyCodeSkip: 32
 --- !u!114 &2071648810
 MonoBehaviour:
