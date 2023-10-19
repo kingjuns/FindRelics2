@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
                 timerController.StopTimer();
                 // 게임 종료 변수 활성화 시키기
                 hasGameEnded = true;
+                //타일 (상하)애니메이션 정지
+                StopTIlesAnimation(SpawnedTiles);
                 // 캐릭터 움직이기
                 Player.MoveStart(resultQueue);
                 break;
@@ -155,7 +157,7 @@ public class GameManager : MonoBehaviour
 
         timerController = FindObjectOfType<TimeController>();
 
-        MoveTilesAnimation(spawnedTiles);
+        //MoveTilesAnimation(spawnedTiles);
 
         FadeEffect ef = FindObjectOfType<FadeEffect>();
         ef.FadeIn(() => {
@@ -247,6 +249,16 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = cameraPos;
 
        
+    }
+    
+    //길이 완성이 되면 타일 애니메이션 실행 일시정지
+    public void StopTIlesAnimation(List<Tile> spawnedTiles)
+    {
+        GetMoveTiles(spawnedTiles, playTiles);
+        foreach (Tile tile in spawnedTiles) 
+        {
+            tile.StopMovement();
+        }
     }
 
     List<Tile> playTiles = new List<Tile>();

@@ -1,8 +1,7 @@
-using System.Collections;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using static PublicLibrary;
-using DG.Tweening;
 
 public class Tile : MonoBehaviour
 {
@@ -40,6 +39,9 @@ public class Tile : MonoBehaviour
 
     // 마지막 타일인지 확인하는 변수
     public bool isDestination;
+
+    // 움직임 시작 여부를 결정하는 변수
+    public bool shouldMove = true;
 
     public void Initialize(TileType type, int rot, int x, int y, LevelData level)
     {
@@ -90,10 +92,14 @@ public class Tile : MonoBehaviour
 
     public void PlaySequence()
     {
+        // shouldMove가 false면 함수를 빠져나옴
+        if (!shouldMove) return;
+
         sinMoveSequence = DOTween.Sequence();
         // Tween 시작
         sinMoveSequence.Append(transform.DOMoveY(initialPosition.y + amplitude, duration)
-            .SetLoops(1).OnUpdate(() => {
+            .SetLoops(1).OnUpdate(() =>
+            {
                 // Sin 함수 움직임 계산하기
                 if (isPlaying == false)
                 {
@@ -103,10 +109,19 @@ public class Tile : MonoBehaviour
                 }
             }));
 
-        sinMoveSequence.OnComplete(() => {
+        sinMoveSequence.OnComplete(() =>
+        {
             // Tween 완료되면 Sin 움직임 다시 시작
             PlaySequence();
         });
+    }
+
+    //움직임 멈추기
+    public void StopMovement()
+    {
+        shouldMove = false; // 움직임을 시작하지 않도록 설정
+        if (sinMoveSequence != null) // sinMoveSequence가 null이 아닐 때만 호출
+            sinMoveSequence.Pause();
     }
 
     public float CalculatePosY()
