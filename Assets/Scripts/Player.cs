@@ -31,16 +31,13 @@ public class Player : MonoBehaviour
         {
             Debug.Log("All positions reached.");
             GameManager.Instance.tweenQueue.Clear();
+            
+            // 스테이지 클리어 프리팹 생성하기
+            Instantiate(GameManager.Instance.UI_Clear_Prefab);
 
-            if (SceneManager.GetActiveScene().name == "Stage9")
-            { 
-                Invoke("Endcredits", 0.5f);               
-            }
-            else
-            {
-                // 스테이지 클리어 프리팹 생성하기
-                Instantiate(GameManager.Instance.UI_Clear_Prefab);
-            }
+            #region 231106
+            RankManager.instance.IsRankChange();
+            #endregion
 
             GameManager.Instance.LoadStageEffect(stageNumber);
 
@@ -66,11 +63,6 @@ public class Player : MonoBehaviour
 
         // 실행 중인 트윈 큐에 넣기
         GameManager.Instance.tweenQueue.Enqueue(move);
-    }
-
-    void Endcredits()
-    {
-        SceneManager.LoadScene("EndScene");
     }
 }
 

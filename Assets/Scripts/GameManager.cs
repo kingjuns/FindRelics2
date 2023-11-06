@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
     List<Tile> spawnedTiles = new List<Tile>();
     public List<Tile> SpawnedTiles { get { return spawnedTiles; } }
 
-    //타이머 
-    private TimeController timerController;
+    //타이머
+    [HideInInspector]
+    public TimeController timerController;
 
     // 게임 종료 불리언 변수
     public bool hasGameEnded;
@@ -127,6 +128,10 @@ public class GameManager : MonoBehaviour
     
     GameObject music;
 
+    // 랭크 매니저 On/Off 할거임
+    [HideInInspector]
+    public RankManager rankManager;
+
     // 모든 타일의 방문 여부를 초기화하는 함수
     private void DisableVisitedTiles()
     {
@@ -148,7 +153,7 @@ public class GameManager : MonoBehaviour
         SpawnStage();
 
         
-        
+        Application.targetFrameRate = 60;
     }
 
     void Start()
