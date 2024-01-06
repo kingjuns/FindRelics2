@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     //타이머
     [HideInInspector]
     public TimeController timerController;
+    // 버튼 클릭 횟수
+    public int PressButtonCount { get; set; } = 0;
 
     // 게임 종료 불리언 변수
     public bool hasGameEnded;

@@ -107,6 +107,9 @@ public class TileButton : MonoBehaviour
 
         // 타일 스왑 시킨다.
         ObjectSwap(TilesButtonLine());
+
+        // 버튼 누른 횟수 1 증가
+        gameManager.PressButtonCount++;
     }
 
     public List<Tile> TilesButtonLine()

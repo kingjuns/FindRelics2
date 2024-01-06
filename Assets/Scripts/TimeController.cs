@@ -53,4 +53,20 @@ public class TimeController : MonoBehaviour
         isTimerRunning = false;
         
     }
+
+    public int ResultPercent()
+    {
+        int result = -1;
+
+        if (currentSeconds >= 0)
+            result = 10;
+        if (currentSeconds >= 30)
+            result = 7;
+        if (currentSeconds >= 35)
+            result = 5;
+        if (currentSeconds >= 40)
+            result = 1;
+
+        return result;
+    }
 }

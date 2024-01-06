@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -33,7 +32,11 @@ public class Player : MonoBehaviour
             GameManager.Instance.tweenQueue.Clear();
             
             // 스테이지 클리어 프리팹 생성하기
-            Instantiate(GameManager.Instance.UI_Clear_Prefab);
+            GameObject go = Instantiate(GameManager.Instance.UI_Clear_Prefab);
+            TextMeshProUGUI[] texts = go.transform.GetChild(1).Find("Texts").GetComponentsInChildren<TextMeshProUGUI>();
+            texts[0].text = $"클리어에 걸린 시간 : {GameManager.Instance.timerController.currentSeconds}초";
+            texts[1].text = $"타일을 움직인 횟수 : {GameManager.Instance.PressButtonCount}번";
+            texts[2].text = $"당신의 두뇌는 상위 {GameManager.Instance.timerController.ResultPercent()}% 입니다!";
 
             #region 231106
             RankManager.instance.IsRankChange();
